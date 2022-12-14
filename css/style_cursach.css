@@ -1,0 +1,738 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    /* color: #f1f1f1; */
+    list-style: none;
+  }
+  
+  @import url('https://fonts.googleapis.com/css?family=Arimo');
+  
+  html {}
+  
+  body {
+    height: 100%;
+    background: linear-gradient(180deg, #0C0032, #0C0032, #190061);
+    color: #f1f1f1;
+  }
+  
+  /* При открытом меню будет отсутствовать функция прокрутки страницы */
+  body._lock {
+    overflow: hidden;
+  }
+  
+  body.light-mode {
+    transition: all 0.1s ease;
+    background: linear-gradient(180deg, #bebebe, #f1f1f1);
+    color: #000;
+  }
+  
+  .wrapper {
+    min-height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    grid-template-rows: minmax(80px, auto) 1fr minmax(80px, auto);
+    grid-template-columns: 1fr;
+  }
+  
+  
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #0C0032;
+  }
+  
+  .header.light-mode {
+    background-color: #bebebe;
+    color: #000;
+  }
+  
+  a {
+    color: #f1f1f1;
+  }
+  
+  a.light-mode {
+    color: #000;
+  }
+  
+  .header__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px;
+  }
+  
+  .header__logo img {
+    margin: 10px;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+
+  }
+  
+  .header__menu a {
+    display: block;
+    font-size: 28px;
+    margin-right: 20px;
+  }
+  
+  .menu {}
+  
+  .menu__icon {
+    display: none;
+  }
+  
+  .menu__body {}
+  
+  .menu__list>li {
+    position: relative;
+    margin: 0 0 0 20px;
+  
+  }
+  
+  .menu__sub-list {
+    position: absolute;
+    top: 100%;
+    /* right: 25px; */
+    background-color: #000;
+    padding: 15px;
+    min-width: 150px;
+  
+  }
+  
+  .menu__sub-list.light-mode{
+    background-color: #c4c3c3;
+  }
+  
+  .menu__sub-list li {
+  
+    margin: 0 0 10px 0;
+  }
+  
+  .menu__sub-list a {
+    display: block;
+    font-size: 24px;
+  
+  }
+  
+  .menu__sub-list li:last-child {
+    margin: 0;
+  }
+  
+  .menu__link {
+    font-size: 18px;
+  }
+  
+  .menu__link:hover {
+    text-decoration: underline;
+  }
+  
+  .menu__sub-link {}
+  
+  .menu__arrow {
+    display: none;
+  }
+  
+  /* ------------------------------- */
+  body._pc .menu__list>li:hover .menu__sub-list {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0px, 0px);
+    pointer-events: all;
+  }
+  
+  body._touch .menu__list>li {
+    display: flex;
+    align-items: center;
+  }
+  
+  body._touch .menu__link {
+    flex: 1 1 auto;
+  }
+  
+  
+  body._touch .menu__arrow {
+    display: block;
+    /* Тут делаю стрелочку для мобильных устройств, при нажатии на неё, будет всплывать под-меню с планетами */
+    width: 0;
+    height: 0;
+    margin: 0 0 0 5px;
+    transition: transform 0.3s ease 0s;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #fff
+  }
+  
+  
+  body._touch .menu__list>li._active .menu__sub-list {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0px, 0px);
+    pointer-events: all;
+  }
+  
+  body._touch .menu__list>li._active .menu__arrow {
+    transform: rotate(-180deg);
+  }
+  
+  /* ------------------------------- */
+  
+  /* Уменьшение строк для мобильных телефонов, потом перенести к адаптиву */
+  @media (min-width: 767px) {
+    .menu__list {
+      display: flex;
+      align-items: center;
+    }
+  
+    .menu__list>li {
+      padding: 10px 0;
+    }
+  
+    .menu__sub-list {
+      transform: translate(0px, 10%);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.3s ease 0s;
+    }
+    .footer{
+      max-width: 100px;
+    }
+  }
+  
+  /* Меню бургер */
+  @media (max-width: 767px) {
+    .menu__icon {
+      z-index: 5;
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 18px;
+      cursor: pointer;
+    }
+  
+    /* Рисуем иконку бургера */
+    .menu__icon span,
+    .menu__icon::before,
+    .menu__icon::after {
+      left: 0;
+      position: absolute;
+      height: 10%;
+      width: 100%;
+      transition: all 0.3s ease 0s;
+      background-color: #f1f1f1;
+    }
+  
+    .menu__icon::before,
+    .menu__icon::after {
+      content: "";
+    }
+  
+    .menu__icon::before {
+      top: 0;
+    }
+  
+    .menu__icon::after {
+      bottom: 0;
+    }
+  
+    .menu__icon span {
+      top: 50%;
+      transform: scale(1) translate(0px, -50%);
+    }
+  
+    /* Анимация бургера */
+    .menu__icon._active span {
+      transform: scale(0);
+    }
+  
+    .menu__icon._active:before {
+      top: 50%;
+      transform: rotate(-45deg) translate(0px, -50%);
+  
+    }
+  
+    .menu__icon._active:after {
+      bottom: 50%;
+      transform: rotate(45deg) translate(0px, 50%);
+  
+    }
+  
+  
+    .menu__body {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 100px 30px 30px 30px;
+      transition: left 0.3s ease 0s;
+      /* Если дсплей будет в горизонтальном виде, то меню можно будет проскролить */
+      overflow: auto;
+    }
+
+    .menu__body.light-mode{
+        background-color: rgba(189, 189, 189, 0.9);
+    }
+  
+    .menu__body._active {
+      left: 0;
+    }
+  
+    .menu__body::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 80px;
+      z-index: 100;
+      background-color: #0C0032;
+    }
+
+    .menu__body.light-mode::before{
+        background-color: #bebebe;
+    }
+  
+    .menu__list>li {
+      flex-wrap: wrap;
+      margin: 0 0 30px 0;
+    }
+  
+    .menu__list>li:last-child {
+      margin-bottom: 0;
+    }
+  
+    .menu__list>li._active .menu__sub-list {
+      display: block;
+    }
+  
+    .menu__link {
+      font-size: 24px;
+    }
+  
+    .menu__sub-list {
+      position: relative;
+      background-color: #fff;
+      flex: 1 1 100%;
+      margin: 20px 0 0 0;
+      display: none;
+    }
+  
+    .menu__sub-link {
+      font-size: 20px;
+      color: #000;
+    }
+  }
+  
+  .main {
+    grid-area: main;
+    /* background-color: #1F2833; */
+    /* background-color: #950740; */
+    /* Для отступа от */
+    transition: 1s;
+  
+    max-width: 1400px;
+    padding: 20px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas:
+      "planets"
+      "content";
+  
+  }
+  
+  
+  .main__planets {
+    grid-area: planets;
+    display: grid;
+    grid-template-areas:
+      "main__header"
+      "main__images";
+    margin-bottom: 40px;
+  
+  }
+  
+  .main__header {
+    grid-area: main__header;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .main__header h3 {
+    font-size: 30px;
+    margin-top: 20px;
+    font-weight: 700;
+  
+  }
+  
+  .main__header h3:last-child {
+    font-size: 28px;
+  }
+  
+  .main__images {
+    grid-area: main__images;
+    display: grid;
+    margin: 0 auto;
+    text-align: center;
+    grid-template-areas:
+      "mercury venus earth mars"
+      "jupiter saturn uran neptun";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 150px;
+    row-gap: 30px;
+    font-size: 30px;
+    font-family: 'Arimo', sans-serif;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+  }
+  
+  .main__images img {
+    width: 120px;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out
+  }
+  
+  
+  .main__images img:hover {
+    transition: 0.5s;
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  
+  .main__mercury {
+    font-weight: 700;
+    grid-area: mercury;
+    font-family: 'Arimo', sans-serif;
+  }
+  
+  .main__venus {
+    grid-area: venus;
+  }
+  
+  .main__earth {
+    grid-area: earth;
+    font-weight: 700;
+  }
+  
+  .main__mars {
+    grid-area: mars;
+  }
+  
+  .main__jupiter {
+    grid-area: jupiter;
+  }
+  
+  .main__saturn {
+    grid-area: saturn;
+  }
+  
+  .main__uran {
+    grid-area: uran;
+  }
+  
+  .main__neptun {
+    grid-area: neptun;
+  }
+  
+  .main__text {
+    font-weight: 700;
+    font-family: 'Arimo', sans-serif;
+    font-size: 24px;
+    color: #f1f1f1;
+  }
+  
+  .main__text.light-mode{
+    color: #000;
+  }
+  
+  .content {
+    grid-area: content;
+    /* padding: 20px; */
+    margin-bottom: 20px;
+  }
+  
+  .content__sun {
+    margin: 0 auto;
+  }
+  
+  .content__header {
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  
+  .content__text_big {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  
+  .content__image img {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    transition: 0.8s;
+  }
+  
+  .content__image img:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+    -ms-ransform: scale(1.1);
+    transform: scale(1.1);
+  }
+  
+  .content__info {
+    display: grid;
+    grid-template-areas:
+      "text table";
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: 1fr;
+    gap: 30px;
+  }
+  
+  .content__text {
+    grid-area: text;
+    text-align: left;
+  }
+  
+  .content__text_big {
+    text-align: center;
+  }
+  
+  .content__text p {
+    text-indent: 25px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .content__table {
+    grid-area: table;
+    float: right;
+  
+  }
+  
+  .content__table td {
+    border: 2px solid #C5C6C7;
+    border-radius: 3px;
+    padding: 10px;
+    width: 200px;
+    font-size: 20px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .footer {
+    grid-area: footer; 
+    padding: 15px;
+    max-width: 1400px;
+    position: relative;
+  }
+  
+  
+  .footer__images img {
+    width: 60px;
+    
+  }
+  
+  .footer__email {
+    grid-area: email;
+    position: absolute;
+    top: 10px;
+    font-size: 22px;
+  }
+  
+  .footer__author {
+    grid-area: author;
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    font-size: 22px;
+  
+  }
+  
+  .footer__telegram {
+  
+    grid-area: telegram;
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+  }
+  
+  .footer__vk {
+  
+    grid-area: vk;
+    position: absolute;
+    bottom: 7px;
+    right: 80px;
+  }
+  
+  .footer__email a:hover {
+    color: #C5C6C7;
+    transition: 1s;
+  }
+  
+  .footer__author:hover {
+    color: #C5C6C7;
+    transition: 1s;
+  }
+  
+  @media only screen and (max-width: 1250px) {
+    .main {
+      max-width: 1400px;
+      transition: 1s;
+    }
+  
+    .main__header h3 {
+      font-size: 26px;
+    }
+  
+    .main__header h3:last-child {
+      font-size: 24px;
+    }
+  
+    .main__images {
+      column-gap: 90px;
+      transition: 0.5s;
+    }
+  
+    .main__images img {
+      width: 100px;
+    }
+  }
+  
+  
+  
+  @media only screen and (max-width: 900px) {
+    .main__images {
+      grid-template-areas:
+        "mercury venus"
+        "earth mars"
+        "jupiter saturn"
+        "uran neptun";
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      column-gap: 120px;
+      row-gap: 25px;
+      transition: 0.5s;
+    }
+  
+    .main__image img {
+      width: 140px;
+    }
+  
+    .main__text {
+      font-weight: 700;
+      font-family: 'Arimo', sans-serif;
+      font-size: 20px;
+      transition: 0.5s;
+    }
+  
+    .content__table td {
+      width: 150px;
+    }
+  }
+  
+  
+  
+  @media only screen and (max-width: 768px) {
+    .content__info {
+      grid-template-areas:
+        "table"
+        "text";
+    }
+  
+    .content__table {
+      width: 100%;
+    }
+  
+    .content__table td {
+      width: 40%;
+    }
+  }
+  
+  @media only screen and (max-width: 666px) {}
+  
+  @media only screen and (max-width: 550px) {
+    .main__header h3 {
+      font-size: 22px;
+      text-align: center;
+    }
+  
+    .main__header h3:last-child {
+      font-size: 20px;
+    }
+  
+    .main__image img {
+      width: 110px;
+    }
+  
+    .main__images {
+      column-gap: 60px;
+    }
+  
+    .footer__author {
+      font-size: 18px;
+    }
+  
+    .footer__email {
+      font-size: 18px;
+    }
+  
+    .footer__images img {
+      width: 50px;
+    }
+  
+    .footer__telegram {
+      right: 15px;
+    }
+  }
+  
+  @media only screen and (max-width: 450px) {
+    .footer__author {
+      font-size: 16px;
+    }
+  
+    .footer__email {
+      font-size: 16px;
+    }
+  
+    .footer__images img {
+      width: 45px;
+  
+    }
+  
+    .footer__telegram {
+      bottom: 15px;
+    }
+  
+    .footer__vk {
+      bottom: 15px;
+    }
+  }

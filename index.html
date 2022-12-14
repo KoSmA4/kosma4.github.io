@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    <link rel="icon" href="image/top_menu_icon.png" type="image/png">
+    <link rel="stylesheet" href="css/style_cursach.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container">
+                <a href="#" class="header__logo"><img src="image/top_menu_icon.png" alt=""></a>
+                
+                <div class="header__menu menu">
+                    <div class="menu__icon">
+                        <span></span>
+                    </div>
+                    <nav class="menu__body">
+                        <ul class="menu__list">
+
+                            <li>
+                                <a data-goto=".main__planets" href="#" class="menu__link">Все планеты</a>
+                                <span class="menu__arrow"></span>
+                                <!-- Под-меню с планетами -->
+                                <ul class="menu__sub-list">
+                                    <li>
+                                        <a href="index_mercury.html" class="menu__sub-link">Меркурий</a>
+                                    </li>
+                                    <li>
+                                        <a href="index_venus.html" class="menu__sub-link">Венера</a>
+                                    </li>
+                                    <li>
+                                        <a href="index_earth.html" class="menu__sub-link">Земля</a>
+                                    </li>
+                                    <li>
+                                        <a href="index_mars.html" class="menu__sub-link">Марс</a>
+                                    </li>
+                                    <li>
+                                        <a href="index_jupiter.html" class="menu__sub-link">Юпитер</a>
+                                    </li>
+                                    <li>
+                                        <a href="index_saturn.html" class="menu__sub-link">Сатурн</a>
+                                    </li>
+                                    <li>
+                                        <a href="index_uran.html" class="menu__sub-link">Уран</a>
+                                    </li>
+                                    <li>
+                                        <a href="index_neptun.html" class="menu__sub-link">Нептун</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a data-goto=".content__sun" href="#" class="menu__link">Солнце</a></li>
+                            <li><a data-goto=".content__moon" href="#" class="menu__link">Луна</a></li>
+                            <li><a href="#" class="menu__link" id="theme">Тема</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </header>
+
+        <main class="main" id="planets">
+            <div class="main__planets">
+                <div class="main__header">
+                    <h3>Solar System - Сайт про планеты, солнечную систему и космос</h3>
+                    <h3>Планеты солнечной системы</h3>
+                </div>
+                <div class="main__images">
+                    <!-- всё переименовать под подходящие планеты -->
+                    <div class="main__mercury">
+                        <a href="index_mercury.html">
+                            <div class="main__image">
+                                <img src="image/mercury.png" alt="">
+                            </div>
+                            <div class="main__text">
+                                Меркурий
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="main__venus">
+                        <a href="index_venus.html">
+                            <div class="main__image">
+                                <img src="image/venera.png" alt="">
+                            </div>
+                            <div class="main__text">
+                                Венера
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="main__earth">
+                        <a href="index_earth.html">
+                            <div class="main__image">
+                                <img src="image/earth.png" alt="">
+                            </div>
+                            <div class="main__text">
+                                Земля
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="main__mars">
+                        <a href="index_mars.html">
+                            <div class="main__image">
+                                <img src="image/mars.png" alt="">
+                            </div>
+                            <div class="main__text">
+                                Марс
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="main__jupiter">
+                        <a href="index_jupiter.html">
+                            <div class="main__image">
+                                <img src="image/jupiter.png" alt="">
+                            </div>
+                            <div class="main__text">
+                                Юпитер
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="main__saturn">
+                        <a href="index_saturn.html">
+                            <div class="main__image">
+                                <img src="image/saturn.png" alt="">
+                            </div>
+                            <div class="main__text">
+                                Сатурн
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="main__uran">
+                        <a href="index_uran.html">
+                            <div class="main__image">
+                                <img src="image/uran.png" alt="">
+                            </div>
+                            <div class="main__text">
+                                Уран
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="main__neptun">
+                        <a href="index_neptun.html">
+                            <div class="main__image">
+                                <img src="image/neptun.png" alt="">
+                            </div>
+                            <div class="main__text">
+                                Нептун
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Начинается работа над солнцем -->
+            <div class="content">
+                <div class="content__sun" id="sun">
+                    <div class="content__header">
+                        <div class="content__text content__text_big">
+                            Солнце
+                        </div>
+                        <div class="content__image">
+                            <img src="image/sun.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="content__info">
+                        <div class="content__text">
+                            <!-- Пока сделал с помощью абзацев, если что, переделать -->
+                            <p>
+                                Солнце — это обычная звезда, возраст ее около 5 миллиардов лет. В центре Солнца
+                                температура
+                                достигает 14 миллиардов градусов. В солнечном ядре происходит превращение водорода в
+                                гелий с
+                                выделением огромного количества энергии. На поверхности Солнце имеет пятна, происходят
+                                яркие
+                                вспышки и можно увидеть взрывы колоссальной силы.
+                            </p>
+                            <p>
+                                Солнечная атмосфера имеет толщину 500 км. и называется фотосферой. Поверхность Солнца —
+                                пузырчатая. Эти пузыри называются Солнечной зернистостью, и разглядеть ее можно только
+                                через
+                                специальный солнечный телескоп.
+                            </p>
+                            <p>
+                                Благодаря конвекции в солнечной атмосфере, тепловая энергия из нижних слоев переносится
+                                в
+                                фотосферу, придавая ей пенистое строение. Солнце вращается не как твердое небесное тело
+                                вроде
+                                Земли. В отличие от Земли различные части Солнца вращаются с различными скоростями.
+                                Быстрее
+                                всего крутится экватор, делая один оборот за 25 дней.
+                            </p>
+                            <p>
+                                В конце концов Солнце остынет, превратившись в белый карлик. У полюсов Солнца ускорение
+                                свободного
+                                падения 274 м/c2. Химический состав: водород (90%), гелий (10%), остальные элементы
+                                менее 0,1%.
+                                Солнце удалено от центра нашей галактики на 33000 световых лет. Оно движется вокруг
+                                цента галактики
+                                со скоростью 250км/с, делая полный оборон за 200000000 лет.
+                            </p>
+                            <p>
+                                При удалении от экватора скорость вращения снижается, и в полярных областях поворот
+                                занимает уже
+                                35 дней. Солнце будет еще существовать 5 миллиардов лет, постепенно нагреваясь и
+                                увеличиваясь в
+                                размерах. Когда весь водород в центральном ядре израсходуется, Солнце будет в 3 раза
+                                больше, чем
+                                теперь.
+                            </p>
+                        </div>
+                        <div class="content__table">
+                            <table>
+                                <tr>
+                                    <td>Macca:</td>
+                                    <td>2*10<sup>30</sup>кг.</td>
+                                </tr>
+                                <tr>
+                                    <td>Диаметр:</td>
+                                    <td>1392000 км.</td>
+                                </tr>
+                                <tr>
+                                    <td>Плотность:</td>
+                                    <td>1,416 г/см<sup>3</sup></td>
+                                </tr>
+                                <tr>
+                                    <td>Температура поверхности:</td>
+                                    <td>+5500<sup>o</sup>C</td>
+                                </tr>
+                                <tr>
+                                    <td>Светимость:</td>
+                                    <td>3,86*10<sup>23</sup>кВт</td>
+                                </tr>
+                                <tr>
+                                    <td>Ускорение свободного падения:</td>
+                                    <td>274 м/c<sup>2</sup></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Начинается работа над луной -->
+                <div class="content__moon" id="moon">
+                    <div class="content__header content__header_moon">
+                        <div class="content__text content__text_big">
+                            Луна
+                        </div>
+                        <div class="content__image">
+                            <img src="image/moon.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="content__info content__info_moon">
+                        <div class="content__text">
+
+                            <!-- Пока сделал с помощью абзацев, если что, переделать -->
+                            <p>
+                                Луна — естественный спутник Земли. Самый близкий к Солнцу спутник планеты, так как у
+                                ближайших к
+                                Солнцу планет, Меркурия и Венеры, спутников нет. Второй по яркости объект на земном
+                                небосводе после
+                                Солнца и пятый по величине естественный спутник планеты Солнечной системы. Среднее
+                                расстояние между
+                                центрами Земли и Луны — 384 467 км (0,002 57 а. е., ~ 30 диаметров Земли). Луна является
+                                единственным астрономическим объектом вне Земли, на котором побывал человек.
+                            </p>
+                            <p>
+                                Первым искусственным объектом, который преодолел гравитацию Земли и пролетел рядом с
+                                Луной, была
+                                советская станция Луна 1. Первым спутником, достигшим поверхности Луны, была станция
+                                Луна 2. Первым
+                                спутником, сделавшим фотографии обратной стороны Луны, была станция Луна 3. Все эти три
+                                лунные
+                                программы были успешно завершены в 1959 году
+                            </p>
+                            <p>
+                                Первая успешная мягкая посадка на Луну была произведена советской станцией Луна 9.
+                                Американская
+                                лунная программа «Аполлон» началась в начале 60х годов прошлого века с заявления
+                                президента Кеннеди,
+                                что США запустят человека на Луну до конца 60-х годов. В результате этой программы США
+                                удалось
+                                осуществить 6 успешных полетов на Луну в промежутке между 1969 и 1972 годами.
+                            </p>
+                            <p>
+                                После завершения программы «Аполлон» исследования нашего естественного спутника
+                                фактически
+                                прекратились на период более 30 лет. Только в начале нашего века несколько стран, в
+                                числе которых
+                                Россия, США и Китай, заявили о начале своих лунных программ, результатами которых должно
+                                стать
+                                возвращение человека на Луну.
+                            </p>
+                            <p>
+                                Луна появилась около 4,5 млрд лет назад, немного позже Земли. Наиболее популярна
+                                гипотеза о том, что
+                                Луна сформировалась из осколков, оставшихся после «Гигантского столкновения» Земли и
+                                Тейи — планеты,
+                                схожей по размерам с Марсом.
+                            </p>
+                        </div>
+                        <div class="content__table">
+                            <table>
+                                <tr>
+                                    <td>Macca:</td>
+                                    <td>7.36*10<sup>22</sup>кг.</td>
+                                </tr>
+                                <tr>
+                                    <td>Диаметр:</td>
+                                    <td>3 474,8 км.</td>
+                                </tr>
+                                <tr>
+                                    <td>Плотность:</td>
+                                    <td>3,34 г/см<sup>3</sup></td>
+                                </tr>
+                                <tr>
+                                    <td>Температура поверхности:</td>
+                                    <td>от -173<sup>o</sup>C до 127<sup>o</sup>C</td>
+                                </tr>
+                                <tr>
+                                    <td>Светимость:</td>
+                                    <td>1,21*10<sup>13</sup>кВт</td>
+                                </tr>
+                                <tr>
+                                    <td>Ускорение свободного падения:</td>
+                                    <td>1,62 м/c<sup>2</sup></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__email">
+                <a href="mailto:kosmatov4660@gmail.com">Email:kosmatov4660@gmail.com</a>
+            </div>
+            <div class="footer__author">
+                Created by: Alexander Kosmatov
+            </div>
+            <div class="footer__images">
+                <div class="footer__telegram">
+                    <a href="https://t.me/AKsmtv"><img src="image/telegram_icon.png" alt=""></a>
+                </div>
+                <div class="footer__vk">
+                    <a href="https://vk.com/kosma5"><img src="image/vk_icon.png" alt=""></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="script/script.js"></script>
+
+</body>
+
+</html>
